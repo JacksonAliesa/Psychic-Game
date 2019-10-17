@@ -20,8 +20,13 @@
 // this function is ran whenever user presses a key
 document.onkeyup = function(event){
     // variable created determines what key is pressed
-    var userGuest = event.key;
+    var userGuess = event.key;
+
+    var letterChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+    var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
 }
+
 
 
 
