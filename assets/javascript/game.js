@@ -17,6 +17,19 @@
 
 
 
+
+var wins = 0;
+var losses = 0;
+var guess = 0;
+
+// variables to pull elements from the html file 
+var totalWins = document.getElementById("totalWins");
+var totalLosses = document.getElementById("totalLosses");
+var guessLeft = document.getElementById("guessLeft");
+var guessTracker = document.getElementById("guessTracker");
+
+
+
 // this function is ran whenever user presses a key
 document.onkeyup = function(event){
     // variable created determines what key is pressed
@@ -25,7 +38,34 @@ document.onkeyup = function(event){
     var letterChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
+
+
+    //need to know what argument goes in curly brackets
+    
+    if (userGuess === compGuess){
+        // alert("I am working!");
+        wins++;
+    }
+    
+    else if ( ){
+       
+    }
+
+
+
+
+
+    //Display results
+    // figure out what to do for displaying guess left
+
+    totalWins.textContent = "Wins:" + userGuess;
+    totalLosses.textContent = "Losses:" + compGuess;
+    // guessLeft.textContent = "Wins" + userGuess;
+    // guessTracker.textContent = "Wins" + userGuess;
+   
 }
+
+
 
 
 
