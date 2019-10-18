@@ -1,4 +1,4 @@
-//1 get user input 
+//1 get user input
 // 1 How to get user input?
 
 //2 Get the letter that was chosen
@@ -15,58 +15,79 @@
 
 //8 restart game after win or loss without page refresh
 
-
-
-
 var wins = 0;
 var losses = 0;
-var guess = 0;
+var guess = 10;
 
-// variables to pull elements from the html file 
-var totalWins = document.getElementById("totalWins");
-var totalLosses = document.getElementById("totalLosses");
-var guessLeft = document.getElementById("guessLeft");
-var guessTracker = document.getElementById("guessTracker");
-
-
-
+// variables to pull elements from the html file
+var totalWins = document.getElementById('totalWins');
+var totalLosses = document.getElementById('totalLosses');
+var guessLeft = document.getElementById('guessLeft');
+var guessTracker = document.getElementById('guessTracker');
 // this function is ran whenever user presses a key
-document.onkeyup = function(event){
-    // variable created determines what key is pressed
-    var userGuess = event.key;
+document.onkeyup = function(event) {
+	// variable created determines what key is pressed
+	var userGuess = event.key;
+	
+	var letterChoices = [
+		'a',
+		'b',
+		'c',
+		'd',
+		'e',
+		'f',
+		'g',
+		'h',
+		'i',
+		'j',
+		'k',
+		'l',
+		'm',
+		'n',
+		'o',
+		'p',
+		'q',
+		'r',
+		's',
+		't',
+		'u',
+		'v',
+		'w',
+		'x',
+		'y',
+		'z'
+	];
 
-    var letterChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+	var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
+	
 
-    var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
-
-
-    //need to know what argument goes in curly brackets
-    
-    if (userGuess === compGuess){
-        // alert("I am working!");
+	if (userGuess === compGuess) {
         wins++;
+        // document.getElementById("totalWins").reset();
+		
+	} else {
+        losses++;
+        guess--;
+        // document.getElementById("guessLeft").reset();
+        // document.getElementById("totalLosses").reset();
+        
     }
     
-    else if ( ){
-       
-    }
 
+	totalWins.textContent = 'Wins: ' + wins;
+    totalLosses.textContent = 'Losses: ' + losses;
+    guessTracker.textContent = "Your Guesses So Far:" + userGuess;
+    guessLeft.textContent = "Guesses Left:" + guess;
+	
+   // if the guesses get to 0 reset game 
+   // if the wins get to 10 reset
+   // if the losses get to 5 reset
+   //look up reset function to put within if statements for the criteria above
 
+   if (guessLeft === 0){
 
+   }
 
-
-    //Display results
-    // figure out what to do for displaying guess left
-
-    totalWins.textContent = "Wins:" + userGuess;
-    totalLosses.textContent = "Losses:" + compGuess;
-    // guessLeft.textContent = "Wins" + userGuess;
-    // guessTracker.textContent = "Wins" + userGuess;
-   
-}
-
-
-
-
-
-
+  
+    
+};
