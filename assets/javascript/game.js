@@ -62,15 +62,28 @@ document.onkeyup = function(event) {
 	
 
 	if (userGuess === compGuess) {
-        wins++;
-        // document.getElementById("totalWins").reset();
-		
-	} else {
-        losses++;
-        guess--;
-        // document.getElementById("guessLeft").reset();
-        // document.getElementById("totalLosses").reset();
-        
+		wins++;
+	} 
+	if (wins > 5){
+		totalWins.reset();
+	}
+	else {
+		losses++; 
+		guess--; 
+		if (losses > 10) {
+			totalLosses.reset();
+		}
+		if (guess === 0){
+          guessLeft.reset();
+		} 
+		// if (wins || losses || guess){
+
+		// }
+
+		// I started with the right idea of controlling the amount of wins, losses, 
+		//guesses the user should have. I am wondering my syntax or use of the reset
+		//method is valid
+	
     }
     
 
@@ -79,14 +92,7 @@ document.onkeyup = function(event) {
     guessTracker.textContent = "Your Guesses So Far:" + userGuess;
     guessLeft.textContent = "Guesses Left:" + guess;
 	
-   // if the guesses get to 0 reset game 
-   // if the wins get to 10 reset
-   // if the losses get to 5 reset
-   //look up reset function to put within if statements for the criteria above
 
-   if (guessLeft === 0){
-
-   }
 
   
     
