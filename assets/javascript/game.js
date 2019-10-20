@@ -17,7 +17,8 @@
 
 var wins = 0;
 var losses = 0;
-var guess = 10;
+var guess = 9;
+var guessArr = [];
 
 // variables to pull elements from the html file
 var totalWins = document.getElementById('totalWins');
@@ -60,31 +61,33 @@ document.onkeyup = function(event) {
 
 	var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
 
-	if (userGuess === compGuess) {
-		wins++;
-	}
-	if (wins > 5) {
-		totalWins.reset();
-	} else {
-		losses++;
-		guess--;
-		if (losses > 10) {
-			totalLosses.reset();
+	// got to reset the game when the guesses run out for user
+	// attempted to use the push method but it was unsuccessful thus far
+	if (userGuess !== compGuess) {
+		console.log(guess--);
+		console.log(losses++);
+		if (guess == 0) {
+			console.log((guess = 9));
+			console.log((losses = 0));
+			console.log((wins = 0));
 		}
-		if (guess === 0) {
-			guessLeft.reset();
+	} else if (userGuess === compGuess) {
+		console.log(wins++);
+		console.log(guess--);
+
+		if (guess == 0) {
+			console.log((guess = 9));
+			console.log((losses = 0));
+			console.log((wins = 0));
 		}
-		// if (wins || losses || guess){
-
-		// }
-
-		// I started with the right idea of controlling the amount of wins, losses,
-		//guesses the user should have. I am wondering my syntax or use of the reset
-		//method is valid
 	}
 
+	// variables that we want to appear on web browser from the html file
+	//this will display
 	totalWins.textContent = 'Wins: ' + wins;
 	totalLosses.textContent = 'Losses: ' + losses;
 	guessTracker.textContent = 'Your Guesses So Far:' + userGuess;
 	guessLeft.textContent = 'Guesses Left:' + guess;
+
+	console.log(guessArr.push(userGuess));
 };
