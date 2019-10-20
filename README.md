@@ -1,1 +1,2 @@
 # Psychic-Game
+This game introduces Javascript. Within this game you will find functionalities that give the game action. You will be able to interact with game by trying to guess what letter the computer is thinking. It is a first-hsnd experience on seeing a page that functions off of behavior.

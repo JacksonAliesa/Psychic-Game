@@ -28,7 +28,7 @@ var guessTracker = document.getElementById('guessTracker');
 document.onkeyup = function(event) {
 	// variable created determines what key is pressed
 	var userGuess = event.key;
-	
+
 	var letterChoices = [
 		'a',
 		'b',
@@ -59,41 +59,32 @@ document.onkeyup = function(event) {
 	];
 
 	var compGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
-	
 
 	if (userGuess === compGuess) {
 		wins++;
-	} 
-	if (wins > 5){
-		totalWins.reset();
 	}
-	else {
-		losses++; 
-		guess--; 
+	if (wins > 5) {
+		totalWins.reset();
+	} else {
+		losses++;
+		guess--;
 		if (losses > 10) {
 			totalLosses.reset();
 		}
-		if (guess === 0){
-          guessLeft.reset();
-		} 
+		if (guess === 0) {
+			guessLeft.reset();
+		}
 		// if (wins || losses || guess){
 
 		// }
 
-		// I started with the right idea of controlling the amount of wins, losses, 
+		// I started with the right idea of controlling the amount of wins, losses,
 		//guesses the user should have. I am wondering my syntax or use of the reset
 		//method is valid
-	
-    }
-    
+	}
 
 	totalWins.textContent = 'Wins: ' + wins;
-    totalLosses.textContent = 'Losses: ' + losses;
-    guessTracker.textContent = "Your Guesses So Far:" + userGuess;
-    guessLeft.textContent = "Guesses Left:" + guess;
-	
-
-
-  
-    
+	totalLosses.textContent = 'Losses: ' + losses;
+	guessTracker.textContent = 'Your Guesses So Far:' + userGuess;
+	guessLeft.textContent = 'Guesses Left:' + guess;
 };
